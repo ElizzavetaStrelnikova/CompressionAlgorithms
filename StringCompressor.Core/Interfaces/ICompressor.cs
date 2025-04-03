@@ -2,7 +2,10 @@
 {
     public interface ICompressor
     {
-        Task<string> Compress(string input);
-        Task<string> Decompress(string compressed);
+        public (string compressed, Dictionary<string, string> metadata) Compress(string input);
+
+        public string Decompress(string compressed, Dictionary<string, string> metadata);
+
+        public string AlgorithmName { get; }
     }
 }
